@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.mapper.MemberMapper">
+	<select id="members" resultType="member">
+		select * from tbl_member
+	</select>
+	<insert id="insertMember" parameterType="member">
+		insert into tbl_member
+		(member_id, password, member_name, phone)
+		values(#{member_id}, #{password}, #{member_name}, #{phone})
+	</insert>
+	
+	<update id="updateMember" parameterType="member">
+		update tbl_member set responsibility = 'User'
+		<if test="password != null">
+			, password = #{password}
+		</if>
+		<if test="member_name != null">
+			, member_name = #{member_name}
+		</if>
+		<if test="phone != null">
+			, phone = #{phone}
+		</if>
+		where member_id = #{member_id}
+	</update>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from tbl_member
+		where member_id = #{member_id}
+	</delete>
+	
+	<select id = "selectMember" parameterType="String" resultType="member">
+		select member_id, password, member_name, phone, responsibility, creation_date
+		from tbl_member
+		where member_id = #{member_id}
+	</select>
+</mapper>
