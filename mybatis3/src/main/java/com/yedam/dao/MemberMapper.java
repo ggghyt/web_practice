@@ -9,4 +9,5 @@ public interface MemberMapper {
 	public int insertMember(Member member);
 	public int updateMember(Member member);
 	public int deleteMember(String member_id);
+	public Member selectMember(String member_id);
 }

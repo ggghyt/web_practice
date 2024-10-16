@@ -30,4 +30,10 @@
 		delete from tbl_member
 		where member_id = #{member_id}
 	</delete>
+	
+	<select id = "selectMember" parameterType="String" resultType="com.yedam.vo.Member">
+		select member_id, password, member_name, phone, responsibility, creation_date
+		from tbl_member
+		where member_id = #{member_id}
+	</select>
 </mapper>

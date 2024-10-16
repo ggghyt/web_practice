@@ -15,7 +15,7 @@ import com.yedam.common.Data_source;
 import com.yedam.dao.MemberMapper;
 import com.yedam.vo.Member;
 
-@WebServlet("/MemberAddServlet")
+//@WebServlet("/MemberAddServlet")
 public class MemberAddServer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,6 +35,7 @@ public class MemberAddServer extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("utf-8");
 
 		String id = request.getParameter("user_id");
