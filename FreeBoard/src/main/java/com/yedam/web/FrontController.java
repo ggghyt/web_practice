@@ -27,6 +27,15 @@ public class FrontController extends HttpServlet {
 		map.put("/memberList.do", new MemberListControl());
 		map.put("/memberAddForm.do", new MemberAddFormControl());
 		map.put("/memberAdd.do", new MemberAddControl());
+		
+		map.put("/boardList.do", new BoardListControl());
+		map.put("/board.do", new BoardControl());
+		
+		map.put("/addBoardForm.do", new AddBoardForm());
+		map.put("/addBoard.do", new AddBoardControl());
+		
+		map.put("/modifyBoard.do", new ModifyBoardControl());
+		map.put("/removeBoard.do", new RemoveBoardControl());
 	}
 	
 	@Override
