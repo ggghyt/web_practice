@@ -7,8 +7,12 @@
 <h3>상세 페이지</h3>
 <%
 BoardVO board = (BoardVO) request.getAttribute("boardVO");
+String pg = (String) request.getAttribute("page");
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss");
 String write_date = sdf.format(board.getWrite_date());
+String searchCondition = (String) request.getAttribute("searchCondition");
+String keyword = (String) request.getAttribute("keyword");
+keyword = keyword == null ? "" : keyword;
 %>
 <table class="table">
 	<tr>
@@ -43,7 +47,7 @@ String write_date = sdf.format(board.getWrite_date());
 
 <script>
 	document.querySelector('input[value="edit"]').addEventListener('click', function(e) {
-		location.href = 'modifyBoard.do?board_num=<%=board.getBoard_num()%>'
+		location.href = 'modifyBoard.do?searchCondition=<%=searchCondition%>&keyword=<%=keyword%>&page=<%=pg%>&board_num=<%=board.getBoard_num()%>'
 	});
 	document.querySelector('input[value="delete"]').addEventListener('click', function(e) {
 		location.href = 'removeBoard.do?board_num=<%=board.getBoard_num()%>'

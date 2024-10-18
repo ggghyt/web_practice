@@ -14,6 +14,9 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+    <%
+    String login_id = (String) session.getAttribute("login_id");
+    %>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
@@ -22,8 +25,18 @@
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberList.do">Member list</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="memberAddForm.do">Add Member</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">Board list</a>
+                    <%
+                    if (login_id == null) {
+                    %>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">Login</a>
+                    <%
+                    } else {
+                    %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addBoardForm.do">Board add</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logOut.do">Logout ( <%=login_id%> )</a>
+                    <%
+                    }
+                    %>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
                 </div>
             </div>

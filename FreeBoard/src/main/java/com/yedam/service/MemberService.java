@@ -9,4 +9,5 @@ public interface MemberService {
 	boolean retireMember(String memberId);
 	
 	List<MemberVO> memberList();
+	MemberVO loginCheck(String id, String pw);
 }

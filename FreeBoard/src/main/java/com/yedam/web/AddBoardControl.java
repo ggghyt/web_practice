@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.common.Control;
 import com.yedam.service.BoardService;
 import com.yedam.service.BoardServiceImpl;
-import com.yedam.service.MemberService;
-import com.yedam.service.MemberServiceImpl;
 import com.yedam.vo.BoardVO;
 
 public class AddBoardControl implements Control {
@@ -22,7 +20,7 @@ public class AddBoardControl implements Control {
 		String title = req.getParameter("title");
 		String content = req.getParameter("content");
 		String writer = req.getParameter("writer");
-		
+		System.out.println(writer);
 		BoardVO board = new BoardVO();
 		board.setTitle(title);
 		board.setContent(content);

@@ -17,18 +17,25 @@ public class ModifyBoardControl implements Control {
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
 		String bno = req.getParameter("board_num");
+		String pg = req.getParameter("page");
+		String searchCondition = req.getParameter("searchCondition");
+		String keyword = req.getParameter("keyword");
 		BoardService svc = new BoardServiceImpl();
 		if (req.getMethod().equals("GET")) {
 
 			BoardVO board = svc.searchBoard(Integer.parseInt(bno));
 
 			req.setAttribute("boardVO", board);
+			req.setAttribute("page", pg);
+			req.setAttribute("searchCondition", searchCondition);
+			req.setAttribute("keyword", keyword);
 			req.getRequestDispatcher("WEB-INF/jsp/modifyForm.jsp").forward(req, resp);
 		}
 		
 		else if (req.getMethod().equals("POST")) {
 			String title = req.getParameter("title");
 			String content = req.getParameter("content");
+			
 
 			BoardVO board = new BoardVO();
 			board.setBoard_num(Integer.parseInt(bno));
@@ -36,7 +43,7 @@ public class ModifyBoardControl implements Control {
 			board.setContent(content);
 
 			if (svc.modifyBoard(board)) {
-				resp.sendRedirect("boardList.do");
+				resp.sendRedirect("boardList.do?searchCondition=" + searchCondition + "&keyword=" + keyword + "&page=" + pg);
 			} else {
 				board = svc.searchBoard(Integer.parseInt(bno));
 

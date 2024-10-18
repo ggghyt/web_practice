@@ -2,16 +2,18 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../includes/header.jsp"></jsp:include>
 
-<h3>등록 화면</h3>
+<h3>게시글 작성</h3>
 <%
 String msg = (String) request.getAttribute("msg");
+String login_id = (String) session.getAttribute("login_id");
 if (msg != null) {
 %>
 <p style="color:blue"><%=msg%></p>
 <%
 }
 %>
-<form action="addBoard.do" method="get">
+<form action="addBoard.do" method="post">
+<input class="form-control" type="hidden" name="writer" value="<%=login_id%>">
 	<table class="table">
 		<tr>
 			<th>제목</th>
@@ -23,7 +25,7 @@ if (msg != null) {
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input class="form-control" type="text" name="writer"></td>
+			<td><%=login_id%></td>
 		</tr>
 		<tr>
 			<th></th>
