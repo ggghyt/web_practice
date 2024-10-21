@@ -12,7 +12,7 @@ public class MemberAddFormControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("WEB-INF/jsp/memberAddForm.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/memberAddForm.tiles").forward(req, resp);
 	}
 
 }

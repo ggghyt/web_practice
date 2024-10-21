@@ -22,7 +22,7 @@ public class MemberListControl implements Control {
 		
 		req.setAttribute("memberList", list);
 		
-		req.getRequestDispatcher("WEB-INF/jsp/memberList.jsp").forward(req, resp);
+		req.getRequestDispatcher("admin/memberList.tiles").forward(req, resp);
 
 		
 	}

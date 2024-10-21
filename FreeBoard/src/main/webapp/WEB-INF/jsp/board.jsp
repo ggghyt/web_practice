@@ -2,8 +2,6 @@
 <%@page import="com.yedam.vo.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<jsp:include page="../includes/header.jsp"></jsp:include>
-
 <h3>상세 페이지</h3>
 <%
 BoardVO board = (BoardVO) request.getAttribute("boardVO");
@@ -35,6 +33,16 @@ keyword = keyword == null ? "" : keyword;
 		<th>내용</th>
 		<td colspan="3"><%=board.getContent()%></td>
 	</tr>
+	<%
+	if (board.getImg() != null) { 
+	%>
+	<tr>
+		<th>이미지</th>
+		<td colspan="3"><img src="images/<%=board.getImg()%>" width="200px"></td>
+	</tr>
+	<%
+	}
+	%>
 	<tr>
 			<td colspan="4" align="center">
 			<input type="button" value="edit" class="btn btn-warning">
@@ -43,7 +51,6 @@ keyword = keyword == null ? "" : keyword;
 	</tr>
 </table>
 
-<jsp:include page="../includes/footer.jsp"></jsp:include>
 
 <script>
 	document.querySelector('input[value="edit"]').addEventListener('click', function(e) {

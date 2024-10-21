@@ -29,7 +29,7 @@ public class ModifyBoardControl implements Control {
 			req.setAttribute("page", pg);
 			req.setAttribute("searchCondition", searchCondition);
 			req.setAttribute("keyword", keyword);
-			req.getRequestDispatcher("WEB-INF/jsp/modifyForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/modifyForm.tiles").forward(req, resp);
 		}
 		
 		else if (req.getMethod().equals("POST")) {
@@ -49,7 +49,7 @@ public class ModifyBoardControl implements Control {
 
 				req.setAttribute("boardVO", board);
 				req.setAttribute("msg", "nothing update");
-				req.getRequestDispatcher("WEB-INF/jsp/modifyForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("board/modifyForm.tiles").forward(req, resp);
 			}
 		}
 		

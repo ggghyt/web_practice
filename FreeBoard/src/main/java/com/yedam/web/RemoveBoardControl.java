@@ -23,7 +23,7 @@ public class RemoveBoardControl implements Control {
 			BoardVO board = svc.searchBoard(Integer.parseInt(bno));
 
 			req.setAttribute("boardVO", board);
-			req.getRequestDispatcher("WEB-INF/jsp/deleteForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("board/deleteForm.tiles").forward(req, resp);
 		}
 		
 		else if (req.getMethod().equals("POST")) {
@@ -31,7 +31,7 @@ public class RemoveBoardControl implements Control {
 				resp.sendRedirect("boardList.do");
 			} else {
 				req.setAttribute("msg", "something error");
-				req.getRequestDispatcher("WEB-INF/jsp/deleteForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("board/deleteForm.tiles").forward(req, resp);
 			}
 		}
 

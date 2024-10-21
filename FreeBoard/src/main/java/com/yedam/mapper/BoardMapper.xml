@@ -10,7 +10,8 @@
 		       writer, 
 		       view_count, 
 		       write_date, 
-		       update_date
+		       update_date, 
+		       img 
 		from tbl_board
 		order by board_num
 	</select>
@@ -19,11 +20,13 @@
 		insert into tbl_board (board_num, 
                        title, 
                        content, 
-                       writer)
+                       writer, 
+                       img)
 		values (board_seq.nextVal, 
    		     	#{title}, 
        			#{content}, 
-        		#{writer})
+        		#{writer}, 
+        		#{img})
 	</insert>
 	
 	<update id="updateBoard">
@@ -50,7 +53,8 @@
 		       writer, 
 		       view_count, 
 		       write_date, 
-		       update_date
+		       update_date, 
+		       img
 		from tbl_board
 		where board_num = #{board_num}
 	</select>
