@@ -7,22 +7,17 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.DataSource;
 import com.yedam.common.SearchDTO;
 import com.yedam.mapper.BoardMapper;
+import com.yedam.mapper.ReplyMapper;
+import com.yedam.service.ReplyService;
+import com.yedam.service.ReplyServiceImpl;
 import com.yedam.vo.BoardVO;
+import com.yedam.vo.ReplyVO;
 
 public class AppTest {
 	public static void main(String[] args) {
-		SqlSession sqlSession = DataSource.getInstance().openSession();
-		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+		ReplyService svc = new ReplyServiceImpl();
 		
-		SearchDTO search = new SearchDTO();
-		search.setPage(2);
-		search.setSearchCondition("sample");
-		search.setKeyword("writer");
-		
-		List<BoardVO> list = mapper.listWithPage(search);
-		for(BoardVO bvo : list) {
-			System.out.println(bvo.toString());
-		}
-		
+		svc.replyList(205).forEach(reply -> System.out.println(reply));
+		System.out.println(svc.getReply(5));
 	}
 }

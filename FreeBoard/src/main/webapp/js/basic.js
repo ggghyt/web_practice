@@ -54,3 +54,31 @@ data.forEach(function(num) {
 	tr1.appendChild(th2)
 	document.querySelector("#tbody2").appendChild(tr1)
 })
+
+/*
+<ul>
+		<li>Apple</li>
+		<li>Banana</li>
+		<li>Carrot</li>
+	</ul>
+	<table border="1">
+		<tbody id = "tbody1">
+			<tr>
+				<th>name</th>
+				<td>something</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>name</th>
+				<th>age</th>
+			</tr>
+		</thead>
+		<tbody id = "tbody2">
+			
+		</tbody>
+	</table>
+*/

@@ -51,6 +51,18 @@ keyword = keyword == null ? "" : keyword;
 	</tr>
 </table>
 
+<table id="replyList" class="table">
+	<thead>
+		<tr>
+			<th>댓글 번호</th>
+			<th>내용</th>
+			<th>작성자</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+	</tbody>
+</table>
 
 <script>
 	document.querySelector('input[value="edit"]').addEventListener('click', function(e) {
@@ -60,3 +72,6 @@ keyword = keyword == null ? "" : keyword;
 		location.href = 'removeBoard.do?board_num=<%=board.getBoard_num()%>'
 	});
 </script>
+
+<script src="js/replyService.js"></script>
+<script src="js/reply.js"></script>

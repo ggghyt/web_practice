@@ -12,6 +12,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.common.Control;
+import com.yedam.control.javaScriptControl;
+import com.yedam.control.board.AddBoardControl;
+import com.yedam.control.board.AddBoardForm;
+import com.yedam.control.board.BoardControl;
+import com.yedam.control.board.BoardListControl;
+import com.yedam.control.board.ModifyBoardControl;
+import com.yedam.control.board.RemoveBoardControl;
+import com.yedam.control.member.AddMemberJsonControl;
+import com.yedam.control.member.LogOutControl;
+import com.yedam.control.member.LoginControl;
+import com.yedam.control.member.MemberAddControl;
+import com.yedam.control.member.MemberAddFormControl;
+import com.yedam.control.member.MemberJsonControl;
+import com.yedam.control.member.MemberListControl;
+import com.yedam.control.member.RemoveMemberJsonControl;
+import com.yedam.control.reply.ReplyListControl;
 
 //@WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -39,7 +55,13 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/loginForm.do", new LoginControl());
 		map.put("/logOut.do", new LogOutControl());
+		
 		map.put("/javascript.do", new javaScriptControl());
+		map.put("/memberJson.do", new MemberJsonControl());
+		map.put("/addMemberJson.do", new AddMemberJsonControl());
+		map.put("/removeMemberJson.do", new RemoveMemberJsonControl());
+		
+		map.put("/replyList.do", new ReplyListControl());
 	}
 	
 	@Override
