@@ -15,15 +15,36 @@
 	</delete>
 	
 	<insert id="insertReply" parameterType="reply">
+		<selectKey keyProperty="reply_num" order="BEFORE" resultType="int">
+			select reply_seq.nextval from dual
+		</selectKey>
 		insert into tbl_reply
 		(reply_num, reply, replyer, board_num)
-		values(reply_seq.nextval, #{reply}, #{replyer}, #{board_num})
+		values(#{reply_num}, #{reply}, #{replyer}, #{board_num})
 	</insert>
 	
 	<select id="selectReply" parameterType="int" resultType="reply">
 		select reply_num, reply, replyer, board_num, reply_date
 		from tbl_reply
 		where reply_num = #{reply_num}
+	</select>
+	
+	<select id="selectListPaging">
+		select a.* 
+		from ( select /* + INDEX_ASC (r PK_REPLY) */ rownum ru, r.* 
+			from tbl_reply r 
+			where board_num = #{board_num}
+			order by 2 desc) a 
+		where a.ru > (#{page} - 1) * 5 
+		<![CDATA[
+		and a.ru <= #{page} * 5 
+		]]>
+	</select>
+	
+	<select id="selectCount" parameterType="int">
+		select count(1)
+		from tbl_reply
+		where board_num = #{board_num}
 	</select>
 	
 </mapper>

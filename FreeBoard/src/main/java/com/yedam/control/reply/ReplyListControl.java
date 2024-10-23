@@ -19,10 +19,11 @@ public class ReplyListControl implements Control {
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String board_num = req.getParameter("board_num");
+		String page = req.getParameter("page");
 		resp.setContentType("text/json;charset=utf-8");
 		ReplyService svc = new ReplyServiceImpl();
 		
-		List<ReplyVO> list = svc.replyList(Integer.parseInt(board_num));
+		List<ReplyVO> list = svc.replyList(Integer.parseInt(board_num), Integer.parseInt(page));
 		
 		Gson gson = new GsonBuilder().create();
 		String json = gson.toJson(list);

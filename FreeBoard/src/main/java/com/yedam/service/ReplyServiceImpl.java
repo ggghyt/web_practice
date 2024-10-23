@@ -12,11 +12,6 @@ public class ReplyServiceImpl implements ReplyService {
 
 	SqlSession sqlSession = DataSource.getInstance().openSession(true);
 	ReplyMapper mapper = sqlSession.getMapper(ReplyMapper.class);
-	@Override
-	public List<ReplyVO> replyList(int board_num) {
-		// TODO Auto-generated method stub
-		return mapper.selectList(board_num);
-	}
 
 	@Override
 	public boolean addReply(ReplyVO reply) {
@@ -34,6 +29,16 @@ public class ReplyServiceImpl implements ReplyService {
 	public ReplyVO getReply(int reply_num) {
 		// TODO Auto-generated method stub
 		return mapper.selectReply(reply_num);
+	}
+
+	@Override
+	public List<ReplyVO> replyList(int board_num, int page) {
+		return mapper.selectListPaging(board_num, page);
+	}
+
+	@Override
+	public int replyCount(int board_num) {
+		return mapper.selectCount(board_num);
 	}
 
 }

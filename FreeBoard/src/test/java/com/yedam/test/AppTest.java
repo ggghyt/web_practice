@@ -17,7 +17,7 @@ public class AppTest {
 	public static void main(String[] args) {
 		ReplyService svc = new ReplyServiceImpl();
 		
-		svc.replyList(205).forEach(reply -> System.out.println(reply));
+		svc.replyList(205, 1).forEach(reply -> System.out.println(reply));
 		System.out.println(svc.getReply(5));
 	}
 }
