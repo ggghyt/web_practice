@@ -26,8 +26,12 @@ public class EventInsert implements Control {
 		evo.setTitle(title);
 		evo.setStart_date(start);
 		evo.setEnd_date(end);
-		
-		svc.eventInsert(evo);
+				
+		if (svc.eventInsert(evo)) {
+			resp.getWriter().print("{\"retCode\":\"success\"}");
+		} else {
+			resp.getWriter().print("{\"retCode\":\"something error\"}");
+		}
 	}
 	
 }
