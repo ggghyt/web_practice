@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+$(function() {
+	$("button").eq(0).on("click", function(e) { // +
+		$(":checked").appendTo($("select").eq(1));
+	})
+	
+	$("button").eq(1).on("click", function(e) { // -
+		$(":checked").appendTo($("select").eq(0));
+	})
+});
+
+
+/*
+document.addEventListener("DOMContentLoaded", ()=> {
+	let btn = document.querySelectorAll("button");
+	let sel = document.querySelectorAll("select");
+	btn[0].addEventListener("click", function(e) { // +
+		(sel[0].querySelectorAll("option"))
+		sel[0].querySelectorAll("option").forEach(item => {
+			if (item.selected == true) {
+                sel[1].append(item)
+			}
+		})
+	})
+	
+	btn[1].addEventListener("click", function(e) { // -
+		(sel[1].querySelectorAll("option"))
+		sel[1].querySelectorAll("option").forEach(item => {
+			if (item.selected == true) {
+                sel[0].append(item)
+			}
+		})
+	})
+});
+*/
+</script>
+</head>
+
+<body>
+	<select multiple style="height: 200px; width: 150px">
+		<option>option1</option>
+		<option>option2</option>
+		<option>option3</option>
+		<option>option4</option>
+		<option>option5</option>
+	</select>
+	<button>+</button>
+	<button>-</button>
+	<select multiple style="height: 200px; width: 150px">
+		<option>option6</option>
+		<option>option7</option>
+		<option>option8</option>
+		<option>option9</option>
+		<option>option10</option>
+	</select>
+</body>
+
+</html>

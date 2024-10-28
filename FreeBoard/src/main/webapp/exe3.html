@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+$(function() {
+	$("button").on("click", function(e) {
+		let str = "<tr>"
+		str = str + "<td>" + $("input").eq(0).val() + "</td>"
+		str = str + "<td>" + $("input").eq(1).val() + "</td>"
+		str = str + "<td>" + $("input").eq(2).val() + "</td>"
+		str = str + "</tr>"
+		$(".content tbody").append(str)
+	})
+})
+
+
+/*
+document.addEventListener("DOMContentLoaded", ()=> {
+	document.querySelector("button").addEventListener("click", function(e) {
+		let tr = document.createElement("tr")
+		list = document.querySelectorAll("td")
+		for (i = 0 ; i < 3 ; i++)
+			{
+				let td = document.createElement("td")
+				td.innerText = list[i].firstChild.value
+				tr.appendChild(td)
+			}
+		document.querySelector(".content tbody").appendChild(tr)
+	})
+})
+*/
+</script>
+</head>
+
+<body>
+	<div class="header">
+		<table border="2">
+			<tr>
+				<th>아이디</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>이름</th>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<th>점수</th>
+				<td><input type="number"></td>
+			</tr>
+			<tr>
+				<td align="center" colspan="2">
+					<button id="addBtn">추가</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="content">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>점수</th>
+				</tr>
+			</thead>
+			<tbody>
+
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
